@@ -1,4 +1,4 @@
-# TypeScript Monorepo
+# TransMachina Finite State Machine (FSM)
 
-Rohit Chauhan: Open-Source Libraries for Event-Bus, Store-State-Management, Proxy-Reactivity, Routing, Http-Client, SWR-Caching, Validation, Signal-State in TypeScript. 
---------------------------------------------------------------------------------------------------------------
+Rohit Chauhan: Open-Source Finite State Machine (FSM) with Event-Bus, Store-Bag and SaveBox in TypeScript 
+---------------------------------------------------------------------------------------------------------
