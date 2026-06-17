@@ -48,12 +48,14 @@ return {
 	score: 0,
 	// Arrow function, if single argument, no () required
 	// The arrow function with {} use ({}) or use n explicit return
+    // get() calls getState and set calls setState in the library
+	// Add your custom functions below
 	increaseScore: () => set(state => ({score: state.score + 1})),
 	getHealth: () => get().health
 };
 });
 
-// get() calls getState and set calls setState in the library
+// getState and setState are core library functions
 console.log('Initial State: ', myStore.getState());
 myStore.setState({score: 802});
 console.log('New State 1:', myStore.getState());
