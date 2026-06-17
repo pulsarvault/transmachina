@@ -31,4 +31,33 @@ const result = initializer(setState, getState); // This is the key moment where 
 
 };
 
-// Zustand-lite Usage: Call createStore with an arrow function 
+// Zustand-lite Usage: Call createStore with an arrow function as an argument. myStore Closure object is created.
+// myStore = {
+//  getState: () => state,     // Function to read state
+//  setState: (partial) => {}  // Function to update state
+// }
+// The state (health, score) is HIDDEN inside the closure!
+// You can only access it through getState() and setState()
+// 'set' and 'get' are REFERENCES (NOT called yet) 
+// initializer in createStore(initializer) then holds reference to the (set, get) arrow function.  
+// set and get are just useful shorthands
+ 
+const myStore = createStore((set, get) => {
+return {
+	health: 100,
+	score: 0,
+	// Arrow function, if single argument, no () required
+	// The arrow function with {} use ({}) or use n explicit return
+	increaseScore: () => set(state => ({score: state.score + 1})),
+	getHealth: () => get().health
+};
+});
+
+// get() calls getState and set calls setState in the library
+console.log('Initial State: ', myStore.getState());
+myStore.setState({score: 802});
+console.log('New State 1:', myStore.getState());
+myStore.increaseScore();
+console.log('New State 2: ', myStore.getState());
+myStore.setState({health: 42});
+console.log('New State 3: ', myStore.getState());
